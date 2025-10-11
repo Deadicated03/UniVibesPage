@@ -1,0 +1,167 @@
+:root{
+  --grad-start:#E6399B; /* ροζ */
+  --grad-end:#8A4FF1;   /* μωβ */
+  --bg:#0b0d12;
+  --card:#151823;
+  --text:#e8e8ef;
+  --muted:#b8b8c7;
+  --ring:rgba(138,79,241,.35);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+
+  /* μονοκόμματο φόντο */
+  background-color:#0b0d12;
+  background-image:
+    radial-gradient(1200px 800px at 10% -10%, rgba(230,57,155,.14), transparent 60%),
+    radial-gradient(1000px 700px at 110% 0%, rgba(138,79,241,.16), transparent 60%),
+    linear-gradient(180deg,#0e1016 0%,#0d1119 28%,#0c1017 55%,#0b0e14 78%,#0a0c11 100%);
+  background-repeat:no-repeat,no-repeat,no-repeat;
+  background-attachment:fixed,fixed,fixed;
+  background-position:center top,center top,center top;
+
+  scroll-behavior:smooth;
+}
+
+.container{max-width:1100px; margin:auto; padding:0 20px}
+
+/* APP BAR: πάνω από όλα + blur */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:9999; /* πάντα μπροστά */
+  background-color:rgba(10,12,17,.55); /* fallback όταν δεν υποστηρίζεται blur */
+  backdrop-filter:saturate(120%) blur(10px);
+  -webkit-backdrop-filter:saturate(120%) blur(10px);
+}
+/* ημιδιάφανη πλάτη & λεπτό border */
+.site-header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(10,12,17,.72), rgba(10,12,17,.58));
+  border-bottom:1px solid rgba(255,255,255,.06);
+  pointer-events:none;
+  z-index:0;
+}
+.nav{height:64px; display:flex; align-items:center; justify-content:space-between; position:relative; z-index:1}
+
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+.brand img{border-radius:12px}
+.brand-text{
+  font-weight:800; letter-spacing:.2px;
+  background:linear-gradient(90deg,var(--grad-start),var(--grad-end));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.nav-actions{display:flex; gap:10px}
+
+/* BUTTONS */
+.btn{
+  --padY:.62rem; --padX:1rem;
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:var(--padY) var(--padX);
+  border-radius:14px; text-decoration:none; font-weight:600;
+  border:1px solid transparent; transition:.2s ease;
+}
+.btn.large{--padY:.8rem; --padX:1.1rem; font-size:1.05rem}
+.btn.solid{
+  background:linear-gradient(90deg,var(--grad-start),var(--grad-end));
+  color:#fff; box-shadow:0 10px 24px -8px var(--ring);
+}
+.btn.solid:hover{transform:translateY(-1px)}
+.btn.ghost{border-color:#303548; color:var(--text); background:#131724}
+.btn.ghost:hover{border-color:#42485f}
+
+/* HERO */
+.hero{position:relative; display:grid; grid-template-columns:1.2fr 1fr; gap:40px; padding:72px 20px 40px}
+.hero-copy h1{margin:0 0 8px; font-size:clamp(2.1rem,4vw,3.2rem); line-height:1.1}
+.grad{background:linear-gradient(90deg,var(--grad-start),var(--grad-end)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.lead{color:var(--muted); font-size:1.1rem; max-width:42ch}
+.cta{display:flex; gap:12px; margin:22px 0 6px}
+.tiny{color:#9aa1b6; font-size:.88rem}
+.hero-media{display:flex; align-items:center; justify-content:center}
+.hero-shot{width:100%; max-width:520px; border-radius:22px; background:linear-gradient(90deg,var(--grad-start),var(--grad-end)); padding:2px; box-shadow:0 24px 60px -22px var(--ring); background-origin:border-box; display:block}
+
+
+/* REVEAL animations (fade + slide + blur) */
+.reveal{
+  opacity:0; transform:translateY(36px) scale(.985); filter:blur(6px);
+  transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1), filter .6s ease;
+  will-change:transform,opacity,filter;
+}
+.reveal.reveal-visible{opacity:1; transform:none; filter:blur(0)}
+
+/* FEATURES — κεντραρισμένα */
+.features{
+  display:grid; grid-template-columns:repeat(3, 320px); gap:18px;
+  max-width:calc(320px*3 + 18px*2); margin:64px auto; justify-content:center; align-content:start;
+}
+.feature{background:linear-gradient(180deg,#121624,#0e1220); border:1px solid #23283b; border-radius:18px; padding:18px 16px; text-align:center}
+.feature .icon{font-size:1.4rem}
+.feature h3{margin:.4rem 0}
+.feature p{color:var(--muted); margin:.3rem 0 0}
+
+/* SPACER για να υπάρχει scrolling πριν τα credits */
+.spacer{height:24vh}
+
+/* CREDITS */
+.credits{margin:20px auto 100px}
+.credits h2{margin:0 0 10px; font-size:1.3rem; text-transform:uppercase; letter-spacing:.6px; color:#cfd5e9}
+.creds-grid{display:grid; grid-template-columns:repeat(2, minmax(260px, 1fr)); gap:18px}
+.person{background:linear-gradient(180deg,#121624,#0e1220); border:1px solid #23283b; border-radius:18px; padding:16px}
+.name{font-weight:700; margin-bottom:10px}
+.links{display:flex; gap:10px}
+
+/* ICON BUTTONS (no stretch) */
+.icon-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; padding:8px;
+  border-radius:12px; background:#0f1220; border:1px solid #2a2f42;
+  transition:.2s; overflow:hidden;
+}
+.icon-btn:hover{border-color:#3b4260; transform:translateY(-1px)}
+.icon-btn img{max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block}
+
+/* FOOTER */
+.site-footer{border-top:1px solid #20253a; padding:22px 0 30px}
+.foot{display:flex; align-items:center; justify-content:space-between}
+.foot-left{display:flex; align-items:center; gap:8px}
+.foot-right{display:flex; gap:14px}
+.foot a{color:#bfc6da; text-decoration:none}
+.foot a:hover{color:#e4e7f5}
+
+/* RESPONSIVE */
+@media (max-width:1100px){
+  .hero{grid-template-columns:1fr; padding-top:48px}
+  .hero-media{order:-1}
+  .features{grid-template-columns:repeat(2, 320px); max-width:calc(320px*2 + 18px)}
+}
+@media (max-width:700px){
+  .features{grid-template-columns:320px; max-width:320px}
+  .creds-grid{grid-template-columns:1fr}
+}
+
+/* ΜΟΝΟ κουμπιά σε κινητό */
+@media (max-width: 640px){
+  .btn{
+    --padY: .44rem;
+    --padX: .78rem;
+    font-size: .70rem;
+    border-radius: 9999px;   /* πιο στρογγυλά (pill) */
+    line-height: 1;
+  }
+  .btn.large{
+    --padY: .56rem;
+    --padX: .95rem;
+    font-size: .70rem;
+    border-radius: 9999px;
+  }
+  .nav-actions{ gap: 8px; }  /* λίγο πιο κοντά μεταξύ τους */
+}
+
