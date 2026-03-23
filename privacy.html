@@ -1,142 +1,303 @@
-<!doctype html>
-<html lang="el">
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy Policy — Univibes</title>
-  <meta name="robots" content="noindex"> <!-- Δεν θέλουμε οι μηχανές αναζήτησης να ευρετηριάζουν τις νομικές σελίδες -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Πρόσθετα στυλ ειδικά για αυτή τη σελίδα -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — UniVibes</title>
+  <link rel="icon" type="image/png" href="app_logo.png" />
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;700;800;900&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            dark: '#07030d',
+            panel: '#120a1f',
+            neonPink: '#e6399b',
+            neonPurple: '#8a4ff1',
+            neonBlue: '#2563eb',
+          },
+        },
+      },
+    }
+  </script>
+
   <style>
-    .legal-content {
-      max-width: 800px;
-      margin: 60px auto 100px;
-      padding: 20px;
-      background: #151823;
-      border: 1px solid #23283b;
-      border-radius: 18px;
+    .premium-bg {
+      background-color: #07030d;
+      background-image:
+        radial-gradient(1100px circle at 15% 20%, rgba(230, 57, 155, 0.12), transparent 50%),
+        radial-gradient(1000px circle at 85% 75%, rgba(37, 99, 235, 0.1), transparent 48%),
+        radial-gradient(650px circle at 50% -5%, rgba(138, 79, 241, 0.12), transparent 55%),
+        radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 22px 22px;
+      background-attachment: fixed;
     }
-    .legal-content h1 {
-      font-size: 2.2rem;
-      color: var(--text);
-      margin-bottom: 10px;
+
+    .headline {
+      background: linear-gradient(100deg, #e6399b 0%, #8a4ff1 55%, #7d56ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .legal-content h2 {
-      font-size: 1.5rem;
-      color: var(--text);
-      margin-top: 30px;
-      border-bottom: 1px solid #23283b;
-      padding-bottom: 8px;
+
+    .doc-card {
+      background: linear-gradient(180deg, rgba(18, 10, 31, 0.9), rgba(10, 7, 17, 0.86));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 70px rgba(7, 3, 13, 0.6), 0 0 0 1px rgba(138, 79, 241, 0.1) inset;
+      backdrop-filter: blur(10px);
     }
-    .legal-content p, .legal-content li {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 1rem;
+
+    .section-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 1.2rem;
+      padding: 1.45rem;
+      box-shadow: 0 12px 35px rgba(9, 4, 15, 0.45);
     }
-    .legal-content a {
-      color: var(--grad-end);
-      text-decoration: none;
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.35rem, 2vw, 1.9rem);
+      margin-bottom: 0.95rem;
+      color: #fff;
     }
-    .legal-content a:hover {
+
+    .icon-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.35rem;
+      height: 2.35rem;
+      border-radius: 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.04);
+      color: #e6399b;
+      flex-shrink: 0;
+    }
+
+    .intro-text {
+      color: rgb(226 232 240);
+      line-height: 1.8;
+      font-size: clamp(1.05rem, 1.8vw, 1.16rem);
+      margin-bottom: 0;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: rgb(148 163 184);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 9999px;
+      padding: 0.4rem 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .body-text {
+      color: rgb(203 213 225);
+      line-height: 1.85;
+      margin-bottom: 0;
+    }
+
+    .styled-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .styled-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(9, 6, 16, 0.62);
+      border-radius: 0.95rem;
+      padding: 0.9rem 1rem;
+      color: rgb(203 213 225);
+      line-height: 1.8;
+    }
+
+    .item-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.35rem;
+      color: #a78bfa;
+      flex-shrink: 0;
+    }
+
+    .content-link {
+      color: #e879f9;
       text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(232, 121, 249, 0.35);
     }
-    .legal-content .last-updated {
-      color: #888;
-      font-size: 0.9rem;
-      margin-bottom: 30px;
+
+    .content-link:hover {
+      color: #fff;
     }
-    .back-link {
-        display: inline-block;
-        margin-top: 40px;
-        color: var(--text);
-        text-decoration: none;
-        background-color: #1a1f30;
-        padding: 10px 18px;
-        border-radius: 12px;
-        border: 1px solid #2c3247;
-        transition: .2s ease;
+
+    .premium-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 2rem;
     }
-    .back-link:hover {
-        background-color: #23283b;
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      border-radius: 9999px;
+      padding: 0.72rem 1.35rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.06);
+      transition: transform 220ms ease, background 220ms ease, border-color 220ms ease;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .action-btn.primary {
+      border-color: transparent;
+      background: linear-gradient(90deg, rgba(230, 57, 155, 0.9), rgba(138, 79, 241, 0.9));
+      box-shadow: 0 10px 24px rgba(138, 79, 241, 0.26);
     }
   </style>
 </head>
-<body>
-
-  <!-- Header από την αρχική σελίδα για συνέπεια -->
-  <header class="site-header">
-    <nav class="container nav">
-      <a class="brand" href="index.html">
-        <img src="app_logo.png" alt="Univibes logo" width="36" height="36" />
-        <span class="brand-text">Univibes</span>
+<body class="premium-bg text-slate-200 antialiased overflow-x-hidden">
+  <header class="w-full z-50 bg-dark/65 backdrop-blur-md border-b border-white/5 sticky top-0">
+    <div class="max-w-[960px] mx-auto px-5 sm:px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-neonPink to-neonPurple p-[2px] shadow-lg shadow-neonPurple/20 group-hover:scale-105 transition-transform duration-300">
+          <img src="app_logo.png" alt="UniVibes Logo" class="w-full h-full rounded-[10px] object-cover bg-dark" onerror="this.src='https://via.placeholder.com/40x40/07030d/fff?text=UV'" />
+        </div>
+        <span class="text-xl font-heading font-extrabold tracking-wide text-white">UniVibes</span>
       </a>
-      <div class="nav-actions">
-        <a class="btn ghost" href="index.html#features">Χαρακτηριστικά</a>
-        <a class="btn solid" href="index.html#cta">Get the App</a>
-      </div>
-    </nav>
+      <a href="index.html" class="action-btn">&larr; Αρχική</a>
+    </div>
   </header>
 
-  <main>
-    <div class="legal-content">
-      <h1>Πολιτική Απορρήτου</h1>
-      <p class="last-updated">Τελευταία ενημέρωση: [24 Νοεμβρίου 2025]</p>
+  <main class="max-w-[960px] mx-auto px-5 sm:px-6 py-16 sm:py-20">
+    <article class="doc-card rounded-[2rem] p-7 sm:p-10 md:p-12">
+      <header class="mb-8 text-center">
+        <h1 class="headline text-4xl sm:text-5xl font-heading font-black leading-tight mb-2">Πολιτική Απορρήτου</h1>
+        <p class="meta-pill">Τελευταία ενημέρωση: [24 Νοεμβρίου 2025]</p>
+      </header>
 
-      <h2>1. Εισαγωγή</h2>
-      <p>Καλώς ήρθατε στο Univibes. Η προστασία των προσωπικών σας δεδομένων είναι ύψιστη προτεραιότητα για εμάς. Αυτή η Πολιτική Απορρήτου εξηγεί τι είδους δεδομένα συλλέγουμε, πώς τα χρησιμοποιούμε και τα προστατεύουμε, καθώς και τα δικαιώματά σας σχετικά με αυτά. Η χρήση της εφαρμογής μας συνεπάγεται την αποδοχή αυτής της πολιτικής.</p>
+      <section class="section-card mt-8">
+        <h2 class="section-title"><span class="icon-chip" aria-hidden="true">1</span>Εισαγωγή</h2>
+        <p class="body-text">Καλώς ήρθατε στο Univibes. Η προστασία των προσωπικών σας δεδομένων είναι ύψιστη προτεραιότητα για εμάς. Αυτή η Πολιτική Απορρήτου εξηγεί τι είδους δεδομένα συλλέγουμε, πώς τα χρησιμοποιούμε και τα προστατεύουμε, καθώς και τα δικαιώματά σας σχετικά με αυτά. Η χρήση της εφαρμογής μας συνεπάγεται την αποδοχή αυτής της πολιτικής.</p>
+      </section>
 
-      <h2>2. Υπεύθυνος Επεξεργασίας Δεδομένων</h2>
-      <p>Για οποιαδήποτε απορία, μπορείτε να επικοινωνήσετε μαζί μας στο <a href="mailto:univibesgr@gmail.com">univibesgr@gmail.com</a>.</p>
+      <section class="section-card mt-4">
+        <h2 class="section-title"><span class="icon-chip" aria-hidden="true">2</span>Υπεύθυνος Επεξεργασίας Δεδομένων</h2>
+        <p class="body-text">Για οποιαδήποτε απορία, μπορείτε να επικοινωνήσετε μαζί μας στο <a class="content-link" href="mailto:univibesgr@gmail.com">univibesgr@gmail.com</a>.</p>
+      </section>
 
-      <h2>3. Δεδομένα που Συλλέγουμε</h2>
-      <p>Συλλέγουμε τις παρακάτω κατηγορίες δεδομένων:</p>
-      <ul>
-        <li><strong>Δεδομένα που μας παρέχετε κατά την εγγραφή:</strong> Για την επαλήθευση ότι είστε φοιτητής του Πανεπιστημίου Ιωαννίνων, συλλέγουμε το ακαδημαϊκό σας email. Επίσης, συλλέγουμε το όνομα χρήστη (username) που επιλέγετε και τον κωδικό πρόσβασής σας (κρυπτογραφημένο).</li>
-        <li><strong>Περιεχόμενο που δημιουργείτε:</strong> Αυτό περιλαμβάνει τις αναρτήσεις, τις φωτογραφίες, τα σχόλια και τα μηνύματα που δημοσιεύετε ή ανταλλάσσετε μέσω της εφαρμογής.</li>
-        <li><strong>Δεδομένα που συλλέγουμε αυτόματα:</strong> Κατά τη χρήση της εφαρμογής, ενδέχεται να συλλέγουμε τεχνικές πληροφορίες, όπως η διεύθυνση IP σας, ο τύπος της συσκευής σας, το λειτουργικό σύστημα και δεδομένα σχετικά με τον τρόπο που αλληλεπιδράτε με την εφαρμογή (π.χ. ποιες λειτουργίες χρησιμοποιείτε).</li>
-      </ul>
+      <section class="section-card mt-4">
+        <h2 class="section-title"><span class="icon-chip" aria-hidden="true">3</span>Δεδομένα που Συλλέγουμε</h2>
+        <p class="body-text">Συλλέγουμε τις παρακάτω κατηγορίες δεδομένων:</p>
+        <ul class="styled-list">
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.25a7.5 7.5 0 1 1 15 0" /></svg><span><strong>Δεδομένα που μας παρέχετε κατά την εγγραφή:</strong> Για την επαλήθευση ότι είστε φοιτητής του Πανεπιστημίου Ιωαννίνων, συλλέγουμε το ακαδημαϊκό σας email. Επίσης, συλλέγουμε το όνομα χρήστη (username) που επιλέγετε και τον κωδικό πρόσβασής σας (κρυπτογραφημένο).</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3.75h10.5A2.25 2.25 0 0 1 19.5 6v12a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 18V6a2.25 2.25 0 0 1 2.25-2.25Z" /></svg><span><strong>Περιεχόμενο που δημιουργείτε:</strong> Αυτό περιλαμβάνει τις αναρτήσεις, τις φωτογραφίες, τα σχόλια και τα μηνύματα που δημοσιεύετε ή ανταλλάσσετε μέσω της εφαρμογής.</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v-6m3 6V6.75m3 10.5v-3m3-8.25a2.25 2.25 0 0 1 2.25 2.25v9A2.25 2.25 0 0 1 18 19.5H6a2.25 2.25 0 0 1-2.25-2.25v-9A2.25 2.25 0 0 1 6 6h12Z" /></svg><span><strong>Δεδομένα που συλλέγουμε αυτόματα:</strong> Κατά τη χρήση της εφαρμογής, ενδέχεται να συλλέγουμε τεχνικές πληροφορίες, όπως η διεύθυνση IP σας, ο τύπος της συσκευής σας, το λειτουργικό σύστημα και δεδομένα σχετικά με τον τρόπο που αλληλεπιδράτε με την εφαρμογή (π.χ. ποιες λειτουργίες χρησιμοποιείτε).</span></li>
+        </ul>
+      </section>
 
-      <h2>4. Πώς Χρησιμοποιούμε τα Δεδομένα σας</h2>
-      <p>Χρησιμοποιούμε τα δεδομένα σας για τους εξής σκοπούς:</p>
-      <ul>
-        <li><strong>Για την παροχή και λειτουργία της υπηρεσίας:</strong> Για να επαληθεύσουμε τον λογαριασμό σας, να σας επιτρέψουμε να συνδεθείτε και να σας εμφανίζουμε το περιεχόμενο της εφαρμογής.</li>
-        <li><strong>Για ασφάλεια και εποπτεία:</strong> Για την προστασία της κοινότητας από κακόβουλο περιεχόμενο, spam και παραβιάσεις των <a href="guidelines.html">Οδηγιών Κοινότητας</a>. Αυτό περιλαμβάνει τη διερεύνηση αναφορών από άλλους χρήστες.</li>
-        <li><strong>Για βελτίωση της εφαρμογής:</strong> Αναλύουμε ανώνυμα δεδομένα χρήσης για να κατανοήσουμε ποιες λειτουργίες είναι δημοφιλείς και πώς μπορούμε να βελτιώσουμε την εμπειρία σας.</li>
-        <li><strong>Για επικοινωνία:</strong> Μπορεί να χρησιμοποιήσουμε το email σας για να σας στείλουμε σημαντικές ενημερώσεις σχετικά με την εφαρμογή ή τον λογαριασμό σας (π.χ. αλλαγές στους όρους, ειδοποιήσεις ασφαλείας).</li>
-      </ul>
+      <section class="section-card mt-4">
+        <h2 class="section-title"><span class="icon-chip" aria-hidden="true">4</span>Πώς Χρησιμοποιούμε τα Δεδομένα σας</h2>
+        <p class="body-text">Χρησιμοποιούμε τα δεδομένα σας για τους εξής σκοπούς:</p>
+        <ul class="styled-list">
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75 10.5 18 19.5 6" /></svg><span><strong>Για την παροχή και λειτουργία της υπηρεσίας:</strong> Για να επαληθεύσουμε τον λογαριασμό σας, να σας επιτρέψουμε να συνδεθείτε και να σας εμφανίζουμε το περιεχόμενο της εφαρμογής.</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.25-1.5a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><span><strong>Για ασφάλεια και εποπτεία:</strong> Για την προστασία της κοινότητας από κακόβουλο περιεχόμενο, spam και παραβιάσεις των <a class="content-link" href="guidelines.html">Οδηγιών Κοινότητας</a>. Αυτό περιλαμβάνει τη διερεύνηση αναφορών από άλλους χρήστες.</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 18h16.5M6.75 15V9m4.5 6V6m4.5 9v-3" /></svg><span><strong>Για βελτίωση της εφαρμογής:</strong> Αναλύουμε ανώνυμα δεδομένα χρήσης για να κατανοήσουμε ποιες λειτουργίες είναι δημοφιλείς και πώς μπορούμε να βελτιώσουμε την εμπειρία σας.</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 8.25v7.5A2.25 2.25 0 0 1 19.5 18h-15a2.25 2.25 0 0 1-2.25-2.25v-7.5M21.75 8.25 12 13.5 2.25 8.25" /></svg><span><strong>Για επικοινωνία:</strong> Μπορεί να χρησιμοποιήσουμε το email σας για να σας στείλουμε σημαντικές ενημερώσεις σχετικά με την εφαρμογή ή τον λογαριασμό σας (π.χ. αλλαγές στους όρους, ειδοποιήσεις ασφαλείας).</span></li>
+        </ul>
+      </section>
 
-      <h2>5. Η "Ανωνυμία" στο Univibes</h2>
-      <p>Κατανοούμε ότι η δυνατότητα ανώνυμης έκφρασης είναι κεντρική στην εμπειρία του Univibes. Όταν λέμε "ανωνυμία", εννοούμε ότι οι αναρτήσεις σας δεν συνδέονται δημόσια με το πραγματικό σας όνομα. Ωστόσο, για την ασφάλεια της πλατφόρμας, ο λογαριασμός σας και το περιεχόμενό σας συνδέονται εσωτερικά με το ακαδημαϊκό email που χρησιμοποιήσατε για την εγγραφή. Δεν θα αποκαλύψουμε ποτέ αυτή τη σύνδεση, εκτός αν απαιτηθεί από τον νόμο ή αν υπάρχει σοβαρός κίνδυνος για την ασφάλεια κάποιου ατόμου.</p>
+      <section class="section-card mt-4">
+        <h2 class="section-title"><span class="icon-chip" aria-hidden="true">5</span>Η "Ανωνυμία" στο Univibes</h2>
+        <p class="body-text">Κατανοούμε ότι η δυνατότητα ανώνυμης έκφρασης είναι κεντρική στην εμπειρία του Univibes. Όταν λέμε "ανωνυμία", εννοούμε ότι οι αναρτήσεις σας δεν συνδέονται δημόσια με το πραγματικό σας όνομα. Ωστόσο, για την ασφάλεια της πλατφόρμας, ο λογαριασμός σας και το περιεχόμενό σας συνδέονται εσωτερικά με το ακαδημαϊκό email που χρησιμοποιήσατε για την εγγραφή. Δεν θα αποκαλύψουμε ποτέ αυτή τη σύνδεση, εκτός αν απαιτηθεί από τον νόμο ή αν υπάρχει σοβαρός κίνδυνος για την ασφάλεια κάποιου ατόμου.</p>
+      </section>
 
-      <h2>6. Με Ποιον Μοιραζόμαστε τα Δεδομένα σας</h2>
-      <p>Δεν πουλάμε ούτε ενοικιάζουμε τα προσωπικά σας δεδομένα σε τρίτους. Ενδέχεται να μοιραστούμε δεδομένα με:</p>
-      <ul>
-        <li><strong>Παρόχους υπηρεσιών:</strong> Συνεργαζόμαστε με τρίτες εταιρείες για υπηρεσίες όπως η φιλοξενία των server (hosting) και η ανάλυση δεδομένων (analytics). Αυτοί οι πάροχοι έχουν πρόσβαση στα δεδομένα σας μόνο στο μέτρο που είναι απαραίτητο για να εκτελέσουν τις υπηρεσίες τους για λογαριασμό μας.</li>
-        <li><strong>Νομικές αρχές:</strong> Αν μας ζητηθεί νομίμως, ενδέχεται να κοινοποιήσουμε πληροφορίες σε αρχές επιβολής του νόμου.</li>
-      </ul>
+      <section class="section-card mt-4">
+        <h2 class="section-title"><span class="icon-chip" aria-hidden="true">6</span>Με Ποιον Μοιραζόμαστε τα Δεδομένα σας</h2>
+        <p class="body-text">Δεν πουλάμε ούτε ενοικιάζουμε τα προσωπικά σας δεδομένα σε τρίτους. Ενδέχεται να μοιραστούμε δεδομένα με:</p>
+        <ul class="styled-list">
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5h18M3 12h18M3 16.5h18" /></svg><span><strong>Παρόχους υπηρεσιών:</strong> Συνεργαζόμαστε με τρίτες εταιρείες για υπηρεσίες όπως η φιλοξενία των server (hosting) και η ανάλυση δεδομένων (analytics). Αυτοί οι πάροχοι έχουν πρόσβαση στα δεδομένα σας μόνο στο μέτρο που είναι απαραίτητο για να εκτελέσουν τις υπηρεσίες τους για λογαριασμό μας.</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75A4.5 4.5 0 0 0 12 2.25a4.5 4.5 0 0 0-4.5 4.5v3.75m-1.5 0h12a1.5 1.5 0 0 1 1.5 1.5v7.5a1.5 1.5 0 0 1-1.5 1.5h-12A1.5 1.5 0 0 1 4.5 19.5V12a1.5 1.5 0 0 1 1.5-1.5Z" /></svg><span><strong>Νομικές αρχές:</strong> Αν μας ζητηθεί νομίμως, ενδέχεται να κοινοποιήσουμε πληροφορίες σε αρχές επιβολής του νόμου.</span></li>
+        </ul>
+      </section>
 
-      <h2>7. Τα Δικαιώματά σας (GDPR)</h2>
-      <p>Ως χρήστης εντός της Ευρωπαϊκής Ένωσης, έχετε τα εξής δικαιώματα:</p>
-      <ul>
-        <li><strong>Δικαίωμα πρόσβασης:</strong> Μπορείτε να ζητήσετε αντίγραφο των δεδομένων που διατηρούμε για εσάς.</li>
-        <li><strong>Δικαίωμα διόρθωσης:</strong> Μπορείτε να ζητήσετε τη διόρθωση ανακριβών δεδομένων.</li>
-        <li><strong>Δικαίωμα διαγραφής ("Δικαίωμα στη λήθη"):</strong> Μπορείτε να ζητήσετε τη διαγραφή του λογαριασμού σας και των δεδομένων σας ανά πάσα στιγμή.</li>
-      </ul>
-      <p>Για να ασκήσετε αυτά τα δικαιώματα, παρακαλούμε επικοινωνήστε μαζί μας στο <a href="mailto:univibesgr@gmail.com">univibesgr@gmail.com</a>.</p>
+      <section class="section-card mt-4">
+        <h2 class="section-title"><span class="icon-chip" aria-hidden="true">7</span>Τα Δικαιώματά σας (GDPR)</h2>
+        <p class="body-text">Ως χρήστης εντός της Ευρωπαϊκής Ένωσης, έχετε τα εξής δικαιώματα:</p>
+        <ul class="styled-list">
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75 10.5 18 19.5 6" /></svg><span><strong>Δικαίωμα πρόσβασης:</strong> Μπορείτε να ζητήσετε αντίγραφο των δεδομένων που διατηρούμε για εσάς.</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487a2.121 2.121 0 1 1 3 3L7.5 19.85l-4.5 1.5 1.5-4.5L16.862 4.487Z" /></svg><span><strong>Δικαίωμα διόρθωσης:</strong> Μπορείτε να ζητήσετε τη διόρθωση ανακριβών δεδομένων.</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 7.5h12m-1.5 0v11.25a1.5 1.5 0 0 1-1.5 1.5h-6a1.5 1.5 0 0 1-1.5-1.5V7.5m3-3h3" /></svg><span><strong>Δικαίωμα διαγραφής ("Δικαίωμα στη λήθη"):</strong> Μπορείτε να ζητήσετε τη διαγραφή του λογαριασμού σας και των δεδομένων σας ανά πάσα στιγμή.</span></li>
+        </ul>
+        <p class="body-text mt-4">Για να ασκήσετε αυτά τα δικαιώματα, παρακαλούμε επικοινωνήστε μαζί μας στο <a class="content-link" href="mailto:univibesgr@gmail.com">univibesgr@gmail.com</a>.</p>
+      </section>
 
-      <h2>8. Ασφάλεια Δεδομένων</h2>
-      <p>Λαμβάνουμε όλα τα απαραίτητα τεχνικά και οργανωτικά μέτρα για την προστασία των δεδομένων σας από μη εξουσιοδοτημένη πρόσβαση, απώλεια ή αλλοίωση. Αυτό περιλαμβάνει την κρυπτογράφηση κωδικών και τη χρήση ασφαλών πρωτοκόλλων.</p>
+      <section class="section-card mt-4">
+        <h2 class="section-title"><span class="icon-chip" aria-hidden="true">8</span>Ασφάλεια Δεδομένων</h2>
+        <p class="body-text">Λαμβάνουμε όλα τα απαραίτητα τεχνικά και οργανωτικά μέτρα για την προστασία των δεδομένων σας από μη εξουσιοδοτημένη πρόσβαση, απώλεια ή αλλοίωση. Αυτό περιλαμβάνει την κρυπτογράφηση κωδικών και τη χρήση ασφαλών πρωτοκόλλων.</p>
+      </section>
 
-      <a href="index.html" class="back-link">&larr; Επιστροφή στην αρχική σελίδα</a>
-    </div>
+      <div class="premium-actions">
+        <a href="index.html" class="action-btn primary">Επιστροφή στην αρχική σελίδα</a>
+      </div>
+    </article>
   </main>
 
-  <!-- Placeholder για το footer που θα φορτώσει η JavaScript -->
-  <footer class="site-footer" id="footer-placeholder"></footer>
-
-  <!-- Σύνδεση με το script.js -->
-  <script src="script.js"></script>
+  <footer class="site-footer bg-07030d border-t border-white/5 py-12 w-full mt-auto">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <span class="text-2xl font-heading font-extrabold tracking-wide text-white mb-6 block opacity-50">UniVibes</span>
+      <p class="text-sm text-slate-500 mb-6">&copy; 2026 UniVibes. All rights reserved.</p>
+      <div class="mb-5">
+        <a href="https://instagram.com/univibesgr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors" aria-label="Instagram @univibesgr">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5zm8.88 1.87a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/>
+          </svg>
+          <span>@univibesgr</span>
+        </a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+        <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+        <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+        <a href="guidelines.html" class="hover:text-white transition-colors">Guidelines</a>
+        <a href="help.html" class="hover:text-white transition-colors">Help</a>
+        <a href="account-deletion.html" class="hover:text-white transition-colors">Account Deletion</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

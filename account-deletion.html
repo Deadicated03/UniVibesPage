@@ -1,237 +1,102 @@
-<!doctype html>
-<html lang="el">
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Account Deletion — Univibes</title>
-  <meta name="description" content="Διαγραφή λογαριασμού και δεδομένων για το Univibes." />
-  <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account Deletion Request — UniVibes</title>
+  <link rel="icon" type="image/png" href="app_logo.png" />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Poppins', 'sans-serif'] }, colors: { dark: '#07030d', neonPink: '#e6399b', neonPurple: '#8a4ff1' } } } }
+  </script>
   <style>
-    .legal-content {
-      max-width: 860px;
-      margin: 60px auto 100px;
-      padding: 24px;
-      background: #151823;
-      border: 1px solid #23283b;
-      border-radius: 18px;
-    }
-
-    .legal-content h1 {
-      font-size: 2.2rem;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-
-    .legal-content h2 {
-      font-size: 1.45rem;
-      color: var(--text);
-      margin-top: 32px;
-      border-bottom: 1px solid #23283b;
-      padding-bottom: 8px;
-    }
-
-    .legal-content p,
-    .legal-content li {
-      color: var(--muted);
-      line-height: 1.75;
-      font-size: 1.02rem;
-    }
-
-    .legal-content a {
-      color: var(--grad-end);
-      text-decoration: none;
-    }
-
-    .legal-content a:hover {
-      text-decoration: underline;
-    }
-
-    .intro {
-      font-size: 1.08rem;
-      color: var(--text);
-    }
-
-    .notice-box {
-      margin: 22px 0 26px;
-      padding: 18px;
-      border-radius: 16px;
-      border: 1px solid #3a3057;
-      background: linear-gradient(180deg, rgba(138,79,241,.14), rgba(230,57,155,.10));
-    }
-
-    .notice-box h2 {
-      margin-top: 0;
-      border-bottom: none;
-      padding-bottom: 0;
-      font-size: 1.35rem;
-    }
-
-    .notice-box p {
-      color: #e8e8ef;
-      margin-bottom: 10px;
-    }
-
-    .action-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .inline-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: .2s ease;
-      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
-      color: #fff !important;
-      box-shadow: 0 10px 24px -8px var(--ring);
-    }
-
-    .inline-btn:hover {
-      transform: translateY(-1px);
-      text-decoration: none !important;
-    }
-
-    .secondary-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      border: 1px solid #2c3247;
-      background: #1a1f30;
-      color: var(--text) !important;
-    }
-
-    .secondary-link:hover {
-      background: #23283b;
-      text-decoration: none !important;
-    }
-
-    .email-link {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-top: 40px;
-      color: var(--text);
-      text-decoration: none;
-      background-color: #1a1f30;
-      padding: 10px 18px;
-      border-radius: 12px;
-      border: 1px solid #2c3247;
-      transition: .2s ease;
-    }
-
-    .back-link:hover {
-      background-color: #23283b;
-      text-decoration: none;
-    }
-
-    .steps {
-      padding-left: 20px;
-    }
-
-    .steps li {
-      margin-bottom: 10px;
-    }
+    .premium-bg { background-color:#07030d; background-image:radial-gradient(1100px circle at 15% 20%, rgba(230,57,155,.12), transparent 50%), radial-gradient(1000px circle at 85% 75%, rgba(37,99,235,.1), transparent 48%), radial-gradient(650px circle at 50% -5%, rgba(138,79,241,.12), transparent 55%), radial-gradient(circle, rgba(255,255,255,.03) 1px, transparent 1px); background-size:100% 100%,100% 100%,100% 100%,22px 22px; background-attachment:fixed; }
+    .headline { background:linear-gradient(100deg,#e6399b 0%,#8a4ff1 55%,#7d56ff 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .doc-card { background:linear-gradient(180deg,rgba(18,10,31,.9),rgba(10,7,17,.86)); border:1px solid rgba(255,255,255,.08); box-shadow:0 20px 70px rgba(7,3,13,.6),0 0 0 1px rgba(138,79,241,.1) inset; backdrop-filter:blur(10px); }
+    .section-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.11); border-radius:1.2rem; padding:1.45rem; box-shadow:0 12px 35px rgba(9,4,15,.45); }
+    .warning-shell { background:rgba(244,63,94,.1); border:1px solid rgba(244,63,94,.35); box-shadow:0 12px 28px rgba(244,63,94,.12); }
+    .section-title { display:flex; align-items:center; gap:.75rem; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(1.35rem,2vw,1.9rem); margin-bottom:.95rem; color:#fff; }
+    .icon-chip { display:inline-flex; align-items:center; justify-content:center; width:2.35rem; height:2.35rem; border-radius:.8rem; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); color:#e6399b; flex-shrink:0; }
+    .intro-text { color:rgb(226 232 240); line-height:1.8; font-size:clamp(1.05rem,1.8vw,1.16rem); margin-bottom:0; }
+    .body-text { color:rgb(203 213 225); line-height:1.85; margin-bottom:0; }
+    .styled-list { list-style:none; padding:0; margin:1rem 0 0; display:grid; gap:.75rem; }
+    .styled-list li { display:flex; align-items:flex-start; gap:.65rem; border:1px solid rgba(255,255,255,.1); background:rgba(9,6,16,.62); border-radius:.95rem; padding:.9rem 1rem; color:rgb(203 213 225); line-height:1.8; }
+    .item-icon { width:1.25rem; height:1.25rem; margin-top:.35rem; color:#34d399; flex-shrink:0; }
+    .content-link { color:#e879f9; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(232,121,249,.35); }
+    .content-link:hover { color:#fff; }
+    .premium-actions { display:flex; gap:.8rem; flex-wrap:wrap; justify-content:center; margin-top:2rem; }
+    .action-btn { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; border-radius:9999px; padding:.72rem 1.35rem; font-size:.875rem; font-weight:600; color:#fff; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06); transition:transform 220ms ease,background 220ms ease,border-color 220ms ease; }
+    .action-btn:hover { transform:translateY(-2px); border-color:rgba(255,255,255,.28); background:rgba(255,255,255,.14); }
+    .action-btn.primary { border-color:transparent; background:linear-gradient(90deg,rgba(230,57,155,.9),rgba(138,79,241,.9)); box-shadow:0 10px 24px rgba(138,79,241,.26); }
   </style>
 </head>
-<body>
-
-  <header class="site-header">
-    <nav class="container nav">
-      <a class="brand" href="index.html">
-        <img src="app_logo.png" alt="Univibes logo" width="36" height="36" />
-        <span class="brand-text">Univibes</span>
-      </a>
-      <div class="nav-actions">
-        <a class="btn ghost" href="index.html#features">Χαρακτηριστικά</a>
-        <a class="btn solid" href="index.html#cta">Get the App</a>
-      </div>
-    </nav>
+<body class="premium-bg text-slate-200 antialiased overflow-x-hidden">
+  <header class="w-full z-50 bg-dark/65 backdrop-blur-md border-b border-white/5 sticky top-0">
+    <div class="max-w-[960px] mx-auto px-5 sm:px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group"><div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-neonPink to-neonPurple p-[2px] shadow-lg shadow-neonPurple/20 group-hover:scale-105 transition-transform duration-300"><img src="app_logo.png" alt="UniVibes Logo" class="w-full h-full rounded-[10px] object-cover bg-dark" onerror="this.src='https://via.placeholder.com/40x40/07030d/fff?text=UV'" /></div><span class="text-xl font-heading font-extrabold tracking-wide text-white">UniVibes</span></a>
+      <a href="index.html" class="action-btn">&larr; Αρχική</a>
+    </div>
   </header>
 
-  <main>
-    <div class="legal-content">
-      <h1>Univibes — Διαγραφή Λογαριασμού & Δεδομένων</h1>
-      <p class="intro">
-        Αν χρησιμοποιείς το <strong>Univibes</strong> και θέλεις να ζητήσεις διαγραφή του λογαριασμού σου
-        και των προσωπικών δεδομένων σου, μπορείς να το κάνεις από αυτή τη σελίδα.
-      </p>
+  <main class="max-w-[960px] mx-auto px-5 sm:px-6 py-16 sm:py-20">
+    <article class="doc-card rounded-[2rem] p-7 sm:p-10 md:p-12">
+      <header class="mb-8 text-center">
+        <h1 class="headline text-4xl sm:text-5xl font-heading font-black leading-tight mb-3">Διαγραφή Λογαριασμού</h1>
+        <p class="intro-text">Εάν επιθυμείτε να διαγράψετε οριστικά τον λογαριασμό σας και όλα τα συσχετιζόμενα δεδομένα σας από την εφαρμογή Univibes, παρακαλούμε ακολουθήστε τα παρακάτω βήματα.</p>
+      </header>
 
-      <div class="notice-box">
-        <h2>Αίτημα Διαγραφής Λογαριασμού</h2>
-        <p>
-          Για να ζητήσεις διαγραφή του λογαριασμού σου στο <strong>Univibes</strong>, στείλε email στο:
-        </p>
-        <p>
-          <a href="mailto:univibesgr@gmail.com?subject=Account%20Deletion%20Request%20-%20Univibes" class="email-link">
-            univibesgr@gmail.com
-          </a>
-        </p>
-        <p>
-          Στο θέμα του email μπορείς να γράψεις:
-          <strong>Account Deletion Request - Univibes</strong>
-        </p>
-
-        <div class="action-row">
-          <a class="inline-btn" href="mailto:univibesgr@gmail.com?subject=Account%20Deletion%20Request%20-%20Univibes">
-            Ζήτησε Διαγραφή
-          </a>
-          <a class="secondary-link" href="privacy.html">
-            Privacy Policy
-          </a>
+      <section class="section-card">
+        <h2 class="section-title"><span class="icon-chip" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 8.25v7.5A2.25 2.25 0 0 1 19.5 18h-15a2.25 2.25 0 0 1-2.25-2.25v-7.5M21.75 8.25 12 13.5 2.25 8.25" /></svg></span>Πώς να υποβάλετε αίτημα διαγραφής:</h2>
+        <div class="section-card warning-shell">
+          <p class="body-text"><strong>Σημαντική Σημείωση</strong></p>
+          <p class="body-text mt-2">Γράψτε μας από το ακαδημαϊκό email που χρησιμοποιήσατε για την εγγραφή σας στην εφαρμογή. Αυτό είναι απαραίτητο για να επιβεβαιώσουμε την ταυτότητά σας και να προχωρήσουμε στη διαγραφή.</p>
         </div>
+        <p class="body-text mt-4">Στείλτε μας email στο <strong><a class="content-link" href="mailto:univibesgr@gmail.com">univibesgr@gmail.com</a></strong> με:</p>
+        <ul class="styled-list">
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75 10.5 18 19.5 6" /></svg><span><strong>Θέμα (Subject):</strong> Αίτημα Διαγραφής Λογαριασμού - [Το Username σας]</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75 10.5 18 19.5 6" /></svg><span><strong>Περιεχόμενο (Body):</strong> Απλά αναφέρετε ότι επιθυμείτε την οριστική διαγραφή του λογαριασμού σας.</span></li>
+        </ul>
+      </section>
+
+      <section class="section-card mt-4">
+        <h2 class="section-title"><span class="icon-chip" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75 10.5 18 19.5 6" /></svg></span>Τι θα συμβεί μετά:</h2>
+        <ul class="styled-list">
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75 10.5 18 19.5 6" /></svg><span>Θα επεξεργαστούμε το αίτημά σας το συντομότερο δυνατό.</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75 10.5 18 19.5 6" /></svg><span>Όλα τα προσωπικά σας δεδομένα και το περιεχόμενο που έχετε δημιουργήσει θα διαγραφούν οριστικά από τους servers μας.</span></li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="item-icon" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75 10.5 18 19.5 6" /></svg><span>Η ενέργεια αυτή είναι μη αναστρέψιμη. Αν θελήσετε να χρησιμοποιήσετε ξανά την εφαρμογή στο μέλλον, θα πρέπει να δημιουργήσετε νέο λογαριασμό.</span></li>
+        </ul>
+      </section>
+
+      <div class="premium-actions">
+        <a href="index.html" class="action-btn primary">Επιστροφή στην αρχική σελίδα</a>
       </div>
-
-      <h2>Πώς γίνεται το αίτημα</h2>
-      <ol class="steps">
-        <li>Στείλε email στο <a href="mailto:univibesgr@gmail.com">univibesgr@gmail.com</a>.</li>
-        <li>Χρησιμοποίησε, το ίδιο email που έχεις στον λογαριασμό σου στο Univibes.</li>
-        <li>Γράψε καθαρά ότι ζητάς <strong>διαγραφή λογαριασμού και δεδομένων</strong>.</li>
-      </ol>
-
-      <h2>Τι διαγράφεται</h2>
-      <ul>
-        <li>στοιχεία λογαριασμού, όπως email και username,</li>
-        <li>στοιχεία προφίλ που σχετίζονται με τον λογαριασμό σου,</li>
-        <li>δεδομένα που συνδέονται άμεσα με τον λογαριασμό σου, όπου εφαρμόζεται,</li>
-        <li>άλλα προσωπικά δεδομένα</li>
-      </ul>
-
-      <h2>Χρόνος επεξεργασίας</h2>
-      <p>
-        Τα αιτήματα εξετάζονται το συντομότερο δυνατό. Μπορεί να ζητηθεί επιβεβαίωση ότι το αίτημα
-        προέρχεται από τον κάτοχο του λογαριασμού, για λόγους ασφαλείας.
-      </p>
-
-      <h2>Υποστήριξη</h2>
-      <p>
-        Για γενική βοήθεια μπορείς να επισκεφθείς και τη σελίδα
-        <a href="help.html">Help</a>.
-      </p>
-
-      <a href="index.html" class="back-link">&larr; Επιστροφή στην αρχική σελίδα</a>
-    </div>
+    </article>
   </main>
 
-  <footer class="site-footer" id="footer-placeholder"></footer>
-
-  <script src="script.js"></script>
+  <footer class="site-footer bg-07030d border-t border-white/5 py-12 w-full mt-auto">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <span class="text-2xl font-heading font-extrabold tracking-wide text-white mb-6 block opacity-50">UniVibes</span>
+      <p class="text-sm text-slate-500 mb-6">&copy; 2026 UniVibes. All rights reserved.</p>
+      <div class="mb-5">
+        <a href="https://instagram.com/univibesgr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors" aria-label="Instagram @univibesgr">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5zm8.88 1.87a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/>
+          </svg>
+          <span>@univibesgr</span>
+        </a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+        <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+        <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+        <a href="guidelines.html" class="hover:text-white transition-colors">Guidelines</a>
+        <a href="help.html" class="hover:text-white transition-colors">Help</a>
+        <a href="account-deletion.html" class="hover:text-white transition-colors">Account Deletion</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

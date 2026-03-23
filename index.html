@@ -1,113 +1,280 @@
-<!doctype html>
-<html lang="el">
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Univibes — Social for Students</title>
-  <meta name="description" content="Univibes: social media για φοιτητές, από φοιτητές." />
-  <meta property="og:title" content="Univibes — Social for Students" />
-  <meta property="og:description" content="Social media για φοιτητές, από φοιτητές." />
-  <meta property="og:image" content="univibes.png" />
-  <meta name="theme-color" content="#8A4FF1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UniVibes — Social for Students</title>
+  <link rel="icon" type="image/png" href="app_logo.png" />
+  <meta name="description" content="Social media για φοιτητές, από φοιτητές." />
+  <meta property="og:title" content="UniVibes — Πανεπιστημιακή ζωή." />
+  <meta property="og:description" content="Μάθε τι παίζει στο campus, δες events και βρες νέες γνωριμίες με ασφάλεια." />
+  <meta property="og:image" content="mog_finished.png" />
+  <meta name="theme-color" content="#E6399B" />
+  
+  <!-- Fonts: Poppins for Headings, Inter for Body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            dark: '#07030d',       // Deepest purple/black foundation
+            cardBg: '#11091f',     // Slightly lighter for cards
+            neonPink: '#e6399b',   // Vibrant magenta/pink
+            neonPurple: '#8a4ff1', // Core purple
+            neonBlue: '#2563eb',   // Vibrant energetic blue
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-15px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Network pattern for the 'connected students' depth look */
+    .bg-network {
+      background-color: #07030d;
+      background-image: 
+        /* Subtle glowing orbs for depth */
+        radial-gradient(800px circle at 15% 30%, rgba(230, 57, 155, 0.12), transparent 50%),
+        radial-gradient(1000px circle at 85% 70%, rgba(37, 99, 235, 0.1), transparent 50%),
+        radial-gradient(600px circle at 50% 0%, rgba(138, 79, 241, 0.15), transparent 50%),
+        /* Abstract connection node dots overlay */
+        radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+      background-attachment: fixed;
+    }
+    
+    ::selection { background-color: rgba(230, 57, 155, 0.3); color: white; }
+    
+    .glass-nav {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(7, 3, 13, 0.6);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #07030d; }
+    ::-webkit-scrollbar-thumb { background: #1f1433; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #372855; }
+  </style>
 </head>
-<body>
-  <header class="site-header">
-    <nav class="container nav">
-      <a class="brand" href="#top">
-        <img src="app_logo.png" alt="Univibes logo" width="36" height="36" />
-        <span class="brand-text">Univibes</span>
+<body class="bg-network text-slate-200 antialiased overflow-x-hidden selection:bg-neonPink selection:text-white">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 w-full z-50 transition-all duration-300 glass-nav" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-neonPink to-neonPurple p-[2px] shadow-lg shadow-neonPurple/20 group-hover:scale-105 transition-transform duration-300">
+            <img src="app_logo.png" alt="UniVibes Logo" class="w-full h-full rounded-[10px] object-cover bg-dark" onerror="this.src='https://via.placeholder.com/40x40/07030d/fff?text=UV'" />
+        </div>
+        <span class="text-2xl font-heading font-extrabold tracking-wide text-white">UniVibes</span>
       </a>
-      <div class="nav-actions">
-        <a class="btn ghost" href="#features">Χαρακτηριστικά</a>
-        <a class="btn solid" href="#cta">Get the App</a>
+      <div class="flex items-center gap-6">
+        <a href="#features" class="hidden md:block text-sm font-medium text-slate-300 hover:text-white transition-colors">Χαρακτηριστικά</a>
+        <a href="#download" class="relative inline-flex h-10 items-center justify-center rounded-full px-6 text-sm font-semibold tracking-wide text-white transition-all hover:scale-105 active:scale-95 bg-white/10 hover:bg-white/20 border border-white/5">
+          Κατέβασέ το
+        </a>
       </div>
-    </nav>
+    </div>
   </header>
 
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero container">
-      <div class="hero-copy reveal">
-        <h1><span class="grad">Univibes</span> — social media για φοιτητές, από φοιτητές</h1>
-        <p class="lead">Social media για φοιτητές, από φοιτητές.</p>
-
-        <div class="cta" id="cta">
-          <a class="btn solid large" href="https://play.google.com/store/apps/details?id=com.UniVibes.app&hl=el" target="_blank">
-            Now on Google Play!
-          </a>
-          <a class="btn ghost large" href="#">iOS (soon)</a>
-        </div>
-       
-      </div>
-
-      <div class="hero-media reveal">
-        <img src="univibes.png" alt="Univibes wordmark & preview" class="hero-shot" />
-      </div>
-
-      <!-- scroll cue -->
-      <a href="#features" class="scroll-cue" aria-label="Scroll to features"><span class="chev"></span></a>
-    </section>
-
-    <!-- FEATURES -->
-    <section id="features" class="features container">
-      <div class="feature reveal">
-        <div class="icon">🔒</div>
-        <h3>UoI-only</h3>
-        <p>Προς το παρόν στο UoI· σκοπεύουμε σε expansion σύντομα.</p>
-      </div>
-      <div class="feature reveal" style="transition-delay:.08s">
-        <div class="icon">⚡</div>
-        <h3>Smooth UI/UX</h3>
-        <p>Modern design, όπως τα social που ήδη ξέρεις.</p>
-      </div>
-      <div class="feature reveal" style="transition-delay:.16s">
-        <div class="icon">💬</div>
-        <h3>Social core</h3>
-        <p>Ασφάλεια και ανωνυμία σε κάθε post, για να εκφράζεσαι ελεύθερα.</p>
-      </div>
-    </section>
-
-    <!-- SPACER -->
-    <section class="spacer reveal"></section>
-
-    <!-- CREDITS -->
-    <section class="credits container reveal" id="credits">
-      <h2>δημιουργήθηκε από</h2>
-      <div class="creds-grid">
-
-        <div class="person">
-          <div class="name">Αθανάσιος Κιοσσές</div>
-          <div class="links">
-            <a class="icon-btn" href="https://www.linkedin.com/in/thanasis-kiosses-902549254/" target="_blank" rel="noopener">
-              <img src="linkedin.png" alt="" />
+  <!-- Interactive Premium Hero Section -->
+  <main id="top" class="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden flex items-center min-h-[90vh]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+        
+        <!-- Hero Content -->
+        <div class="text-center lg:text-left z-10 animate-fade-in-up">
+          
+          <!-- Pulse Status Badge -->
+          <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8 shadow-xl shadow-black/20 hover:bg-white/10 transition-colors cursor-default">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]"></span>
+            </span>
+            <span class="text-sm font-medium text-slate-200">Διαθέσιμη στο Google Play</span>
+          </div>
+          
+          <!-- Main Headline -->
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight mb-6 text-white leading-[1.15]">
+            Η δική σου <br />
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-neonPink via-neonPurple to-neonBlue drop-shadow-sm">
+              Πανεπιστημιακή ζωή.
+            </span>
+          </h1>
+          
+          <!-- Sub-Headline & Description -->
+          <p class="text-xl sm:text-2xl text-white font-medium mb-4 max-w-2xl mx-auto lg:mx-0">
+            Social media για φοιτητές, από φοιτητές.
+          </p>
+          <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+            Μάθε τι παίζει στο campus, δες events και βρες νέες γνωριμίες με ασφάλεια. Μπες στην πιο δυναμική φοιτητική κοινότητα σήμερα.
+          </p>
+          
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5" id="download">
+            
+            <!-- Google Play Premium Button -->
+            <a href="https://play.google.com/store/apps/details?id=com.UniVibes.app" target="_blank" rel="noopener noreferrer"
+               class="w-full sm:w-auto group relative flex items-center justify-center gap-3 bg-gradient-to-r from-neonPink to-neonPurple text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(230,57,155,0.4)] active:scale-95">
+              <svg class="w-6 h-6 fill-current group-hover:-rotate-6 transition-transform" viewBox="0 0 24 24"><path d="M3.736 21.077c-.16-.088-.262-.236-.262-.423V3.346c0-.187.103-.335.262-.423s.346-.073.491.037l16.273 8.35c.18.106.29.284.29.49s-.11.384-.29.49l-16.273 8.35c-.145.11-.332.125-.491.037zm1.264-1.636l13.08-6.709L5 6.023v13.418z"/></svg>
+              <span>Google Play</span>
             </a>
-            <a class="icon-btn" href="https://www.instagram.com/thano20/" target="_blank" rel="noopener">
-              <img src="instagram.png" alt="" />
-            </a>
+            
+            <!-- iOS Premium Button -->
+            <button class="w-full sm:w-auto flex items-center justify-center gap-3 bg-white/5 border border-white/10 text-slate-300 px-8 py-4 rounded-2xl font-semibold text-lg cursor-not-allowed opacity-90 backdrop-blur-md" 
+                    title="Σύντομα διαθέσιμο">
+              <svg class="w-6 h-6 fill-current text-slate-400" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.253 3.513 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.04 2.26-.79 3.59-.76 1.76.01 3.08.79 3.95 2.01-3.32 1.87-2.73 6.13.56 7.42-.71 1.76-1.57 3.07-3.18 3.5zm-5.05-13.6c-.16-2.22 1.89-4.23 4.14-4.59.39 2.45-2.25 4.54-4.14 4.59z"/></svg>
+              <span>iOS <span class="text-sm font-normal text-slate-400 ml-1">(Σύντομα)</span></span>
+            </button>
           </div>
         </div>
 
-        <div class="person">
-          <div class="name">Κωνσταντίνος Χατζηιωάννου</div>
-          <div class="links">
-            <a class="icon-btn" href="https://www.linkedin.com/in/chatziioannou03/" target="_blank" rel="noopener">
-              <img src="linkedin.png" alt="" />
-            </a>
-            <a class="icon-btn" href="https://www.instagram.com/_xatzhioannou_/" target="_blank" rel="noopener">
-              <img src="instagram.png" alt="" />
-            </a>
+        <!-- Hero Mockup (Floating) -->
+        <div class="relative mt-8 lg:mt-0 flex justify-center animate-fade-in-up" style="animation-delay: 0.2s;">
+          <!-- Glowing background behind phone -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-neonPink to-neonBlue blur-[80px] opacity-20 rounded-full animate-pulse-slow"></div>
+          
+          <div class="relative z-10 animate-float">
+            <!-- Premium Glass Wrapper for Image -->
+            <div class="relative rounded-[2.5rem] p-3 bg-gradient-to-b from-white/10 to-transparent shadow-2xl backdrop-blur-md border border-white/10 ring-1 ring-white/5">
+                  <img src="mog_finished.png" alt="UniVibes App Screenshot" class="rounded-[2rem] w-full max-w-md md:max-w-xl h-auto object-cover border border-black" 
+                   onerror="this.src='https://via.placeholder.com/350x700/07030d/2563eb?text=App+Screenshot'" />
+              
+              <!-- Floating Decor Element (Optional dynamic touch) -->
+              <div class="absolute -left-6 top-1/4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-lg p-3 shadow-xl animate-float" style="animation-delay: -2s;">
+                <span class="text-2xl">🎓</span>
+              </div>
+              <div class="absolute -right-4 bottom-1/3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-lg p-3 shadow-xl animate-float" style="animation-delay: -4s;">
+                <span class="text-2xl">🔥</span>
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
-    </section>
+    </div>
   </main>
 
-  <footer class="site-footer" id="footer-placeholder"></footer>
+  <!-- Features Section (Upgraded) -->
+  <section id="features" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 opacity-0 translate-y-8 transition-all duration-700 fade-on-scroll">
+        <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4 text-white">Γιατί το UniVibes;</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">Σχεδιασμένο αποκλειστικά για την καλύτερη εμπειρία του φοιτητή.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="group relative bg-cardBg border border-white/5 rounded-3xl p-8 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300 opacity-0 translate-y-8 fade-on-scroll shadow-lg">
+          <div class="w-14 h-14 rounded-2xl bg-neonPurple/20 text-neonPurple flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform duration-300 ring-1 ring-neonPurple/30">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+          </div>
+          <h3 class="font-heading text-2xl font-bold mb-3 text-white">Αποκλειστικό</h3>
+          <p class="text-slate-400 leading-relaxed font-light">
+            Κοινότητα 100% φοιτητική. Όλοι συνδέονται με ιδρυματικό email για να μην υπάρχουν fakes. Κάνε εγγραφή τώρα!
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="group relative bg-cardBg border border-white/5 rounded-3xl p-8 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300 opacity-0 translate-y-8 fade-on-scroll shadow-lg" style="transition-delay: 150ms;">
+          <div class="w-14 h-14 rounded-2xl bg-neonPink/20 text-neonPink flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform duration-300 ring-1 ring-neonPink/30">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="font-heading text-2xl font-bold mb-3 text-white">Events & Spots</h3>
+          <p class="text-slate-400 leading-relaxed font-light">
+            Μάθε όλα τα parties, τα συνέδρια και τα κρυφά στέκια του campus πριν απ' όλους, συγκεντρωμένα σε ένα feed.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="group relative bg-cardBg border border-white/5 rounded-3xl p-8 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300 opacity-0 translate-y-8 fade-on-scroll shadow-lg" style="transition-delay: 300ms;">
+          <div class="w-14 h-14 rounded-2xl bg-neonBlue/20 text-neonBlue flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform duration-300 ring-1 ring-neonBlue/30">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </div>
+          <h3 class="font-heading text-2xl font-bold mb-3 text-white">Ασφάλεια & Ανωνυμία</h3>
+          <p class="text-slate-400 leading-relaxed font-light">
+            Εκφράσου ελεύθερα. Δικαίωμα ανώνυμων posts για να μοιράζεσαι σκέψεις χωρίς δισταγμό (στο Confessions board).
+          </p>
+        </div>
+      </div>
+
+      <!-- Extra Phone Screenshots -->
+      <div class="mt-16 grid sm:grid-cols-2 gap-8 max-w-5xl mx-auto opacity-0 translate-y-8 transition-all duration-700 fade-on-scroll">
+        <div class="relative rounded-3xl p-3 bg-gradient-to-b from-white/10 to-transparent shadow-2xl backdrop-blur-md border border-white/10 ring-1 ring-white/5">
+          <img src="phone_035.png" alt="UniVibes phone preview 1" class="rounded-[1.5rem] w-full h-auto object-cover border border-black/40" />
+        </div>
+        <div class="relative rounded-3xl p-3 bg-gradient-to-b from-white/10 to-transparent shadow-2xl backdrop-blur-md border border-white/10 ring-1 ring-white/5">
+          <img src="phone_0350png.png" alt="UniVibes phone preview 2" class="rounded-[1.5rem] w-full h-auto object-cover border border-black/40" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer bg-07030d border-t border-white/5 py-12 w-full mt-auto">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <span class="text-2xl font-heading font-extrabold tracking-wide text-white mb-6 block opacity-50">UniVibes</span>
+        <p class="text-sm text-slate-500 mb-6">&copy; 2026 UniVibes. All rights reserved.</p>
+        <div class="mb-5">
+            <a href="https://instagram.com/univibesgr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors" aria-label="Instagram @univibesgr">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5zm8.88 1.87a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/>
+              </svg>
+              <span>@univibesgr</span>
+            </a>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+            <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+            <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+            <a href="guidelines.html" class="hover:text-white transition-colors">Guidelines</a>
+            <a href="help.html" class="hover:text-white transition-colors">Help</a>
+            <a href="account-deletion.html" class="hover:text-white transition-colors">Account Deletion</a>
+        </div>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Intersection Observer for scroll animations
+      const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('opacity-0', 'translate-y-8');
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-on-scroll').forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>

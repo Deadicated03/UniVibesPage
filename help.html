@@ -1,102 +1,86 @@
-<!doctype html>
-<html lang="el">
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Help & Support — Univibes</title>
-  <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Τα ίδια στυλ που χρησιμοποιήσαμε στις προηγούμενες σελίδες -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help & Contact — UniVibes</title>
+  <link rel="icon" type="image/png" href="app_logo.png" />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Poppins', 'sans-serif'] }, colors: { dark: '#07030d', neonPink: '#e6399b', neonPurple: '#8a4ff1' } } } }
+  </script>
   <style>
-    .legal-content {
-      max-width: 800px;
-      margin: 60px auto 100px;
-      padding: 20px;
-      background: #151823;
-      border: 1px solid #23283b;
-      border-radius: 18px;
-    }
-    .legal-content h1 {
-      font-size: 2.2rem;
-      color: var(--text);
-      margin-bottom: 20px;
-    }
-    .legal-content h2 {
-      font-size: 1.5rem;
-      color: var(--text);
-      margin-top: 30px;
-      border-bottom: 1px solid #23283b;
-      padding-bottom: 8px;
-    }
-    .legal-content p {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 1.1rem;
-    }
-    .legal-content a {
-      color: var(--grad-end);
-      text-decoration: none;
-    }
-    .legal-content a:hover {
-      text-decoration: underline;
-    }
-    .email-link {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: var(--text);
-    }
-    .back-link {
-        display: inline-block;
-        margin-top: 40px;
-        color: var(--text);
-        text-decoration: none;
-        background-color: #1a1f30;
-        padding: 10px 18px;
-        border-radius: 12px;
-        border: 1px solid #2c3247;
-        transition: .2s ease;
-    }
-    .back-link:hover {
-        background-color: #23283b;
-    }
+    .premium-bg { background-color:#07030d; background-image:radial-gradient(1100px circle at 15% 20%, rgba(230,57,155,.12), transparent 50%), radial-gradient(1000px circle at 85% 75%, rgba(37,99,235,.1), transparent 48%), radial-gradient(650px circle at 50% -5%, rgba(138,79,241,.12), transparent 55%), radial-gradient(circle, rgba(255,255,255,.03) 1px, transparent 1px); background-size:100% 100%,100% 100%,100% 100%,22px 22px; background-attachment:fixed; }
+    .headline { background:linear-gradient(100deg,#e6399b 0%,#8a4ff1 55%,#7d56ff 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .doc-card { background:linear-gradient(180deg,rgba(18,10,31,.9),rgba(10,7,17,.86)); border:1px solid rgba(255,255,255,.08); box-shadow:0 20px 70px rgba(7,3,13,.6),0 0 0 1px rgba(138,79,241,.1) inset; backdrop-filter:blur(10px); }
+    .section-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.11); border-radius:1.2rem; padding:1.35rem; box-shadow:0 12px 35px rgba(9,4,15,.45); }
+    .intro-text { color:rgb(226 232 240); line-height:1.8; font-size:clamp(1.05rem,1.8vw,1.16rem); margin-bottom:0; }
+    .body-text { color:rgb(203 213 225); line-height:1.85; margin-bottom:0; }
+    .section-title { display:flex; align-items:center; gap:.75rem; font-family:'Poppins',sans-serif; font-weight:800; font-size:clamp(1.35rem,2vw,1.9rem); margin-bottom:.95rem; color:#fff; }
+    .icon-chip { display:inline-flex; align-items:center; justify-content:center; width:2.35rem; height:2.35rem; border-radius:.8rem; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); color:#e6399b; flex-shrink:0; }
+    .email-card { margin-top:1.25rem; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); border-radius:1rem; padding:1.15rem; }
+    .email-link { color:#e879f9; text-decoration:none; font-weight:600; }
+    .email-link:hover { color:#fff; text-decoration:underline; }
+    .premium-actions { display:flex; gap:.8rem; flex-wrap:wrap; justify-content:center; margin-top:2rem; }
+    .action-btn { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; border-radius:9999px; padding:.72rem 1.35rem; font-size:.875rem; font-weight:600; color:#fff; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06); transition:transform 220ms ease,background 220ms ease,border-color 220ms ease; }
+    .action-btn:hover { transform:translateY(-2px); border-color:rgba(255,255,255,.28); background:rgba(255,255,255,.14); }
+    .action-btn.primary { border-color:transparent; background:linear-gradient(90deg,rgba(230,57,155,.9),rgba(138,79,241,.9)); box-shadow:0 10px 24px rgba(138,79,241,.26); }
   </style>
 </head>
-<body>
-
-  <header class="site-header">
-    <nav class="container nav">
-      <a class="brand" href="index.html">
-        <img src="app_logo.png" alt="Univibes logo" width="36" height="36" />
-        <span class="brand-text">Univibes</span>
-      </a>
-      <div class="nav-actions">
-        <a class="btn ghost" href="index.html#features">Χαρακτηριστικά</a>
-        <a class="btn solid" href="index.html#cta">Get the App</a>
-      </div>
-    </nav>
+<body class="premium-bg text-slate-200 antialiased overflow-x-hidden">
+  <header class="w-full z-50 bg-dark/65 backdrop-blur-md border-b border-white/5 sticky top-0">
+    <div class="max-w-[960px] mx-auto px-5 sm:px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group"><div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-neonPink to-neonPurple p-[2px] shadow-lg shadow-neonPurple/20 group-hover:scale-105 transition-transform duration-300"><img src="app_logo.png" alt="UniVibes Logo" class="w-full h-full rounded-[10px] object-cover bg-dark" onerror="this.src='https://via.placeholder.com/40x40/07030d/fff?text=UV'" /></div><span class="text-xl font-heading font-extrabold tracking-wide text-white">UniVibes</span></a>
+      <a href="index.html" class="action-btn">&larr; Αρχική</a>
+    </div>
   </header>
 
-  <main>
-    <div class="legal-content">
-      <h1>Επικοινώνησε μαζί μας</h1>
-      <p>Έχεις κάποια απορία, αντιμετωπίζεις κάποιο τεχνικό πρόβλημα ή θέλεις απλώς να μοιραστείς μια ιδέα σου μαζί μας;</p>
-      <p>Για οποιοδήποτε θέμα, μη διστάσεις να μας στείλεις ένα email. Η ομάδα του Univibes θα κάνει το καλύτερο δυνατό για να σου απαντήσει το συντομότερο.</p>
-      
-      <h2>Email Υποστήριξης</h2>
-      <p>
-        <a href="mailto:univibesgr@gmail.com" class="email-link">univibesgr@gmail.com</a>
-      </p>
+  <main class="max-w-[960px] mx-auto px-5 sm:px-6 py-16 sm:py-20">
+    <article class="doc-card rounded-[2rem] p-7 sm:p-10 md:p-12">
+      <header class="mb-8 text-center">
+        <h1 class="headline text-4xl sm:text-5xl font-heading font-black leading-tight mb-3">Επικοινώνησε μαζί μας</h1>
+        <p class="intro-text">Χρειάζεσαι βοήθεια; Έχεις κάποια ερώτηση ή πρόταση για το Univibes;</p>
+      </header>
 
-      <a href="index.html" class="back-link">&larr; Επιστροφή στην αρχική σελίδα</a>
-    </div>
+      <section class="section-card">
+        <h2 class="section-title"><span class="icon-chip" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 8.25v7.5A2.25 2.25 0 0 1 19.5 18h-15a2.25 2.25 0 0 1-2.25-2.25v-7.5M21.75 8.25 12 13.5 2.25 8.25" /></svg></span>Στείλε μας Email</h2>
+        <p class="body-text">Είμαστε εδώ για να σε βοηθήσουμε! Μπορείς να επικοινωνήσεις με την ομάδα υποστήριξης μέσω email. Προσπαθούμε να απαντάμε σε όλα τα μηνύματα το συντομότερο δυνατό.</p>
+        <div class="email-card">
+          <p class="body-text">Για γενικές απορίες, αναφορές προβλημάτων ή προτάσεις βελτίωσης.</p>
+          <a href="mailto:univibesgr@gmail.com" class="email-link">univibesgr@gmail.com</a>
+        </div>
+      </section>
+
+      <div class="premium-actions">
+        <a href="index.html" class="action-btn primary">Επιστροφή στην αρχική σελίδα</a>
+      </div>
+    </article>
   </main>
 
-  <!-- Placeholder για το footer που θα φορτώσει η JavaScript -->
-  <footer class="site-footer" id="footer-placeholder"></footer>
-
-  <!-- Σύνδεση με το script.js -->
-  <script src="script.js"></script>
+  <footer class="site-footer bg-07030d border-t border-white/5 py-12 w-full mt-auto">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <span class="text-2xl font-heading font-extrabold tracking-wide text-white mb-6 block opacity-50">UniVibes</span>
+      <p class="text-sm text-slate-500 mb-6">&copy; 2026 UniVibes. All rights reserved.</p>
+      <div class="mb-5">
+        <a href="https://instagram.com/univibesgr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-white transition-colors" aria-label="Instagram @univibesgr">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5zm8.88 1.87a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/>
+          </svg>
+          <span>@univibesgr</span>
+        </a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+        <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+        <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
+        <a href="guidelines.html" class="hover:text-white transition-colors">Guidelines</a>
+        <a href="help.html" class="hover:text-white transition-colors">Help</a>
+        <a href="account-deletion.html" class="hover:text-white transition-colors">Account Deletion</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
